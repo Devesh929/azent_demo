@@ -1,0 +1,72 @@
+import { mkdirSync, writeFileSync } from 'node:fs';
+import {resolve} from 'node:path';
+import {Browser,sleep} from '../.claude/skills/taste-skill/scripts/lib/cdp.mjs';
+const base=process.env.UI_CHECK_URL||'http://localhost:3001';
+const out=resolve('.taste-skill/portal-guide');mkdirSync(out,{recursive:true});
+const browser=await Browser.launch();const page=await browser.newPage({width:1440,height:1000});const checks=[];
+const assert=(value,label)=>{checks.push({label,passed:!!value});if(!value)throw Error(label);};
+async function wait(fn,label){for(let i=0;i<225;i++){if(await page.eval(fn))return;await sleep(200);}throw Error(label);}
+async function go(path){await page.goto(base+path,{timeoutMs:90000,settleMs:1000});}
+async function signIn(name){await go('/login');await wait(()=>[...document.querySelectorAll('button')].some(b=>b.textContent.includes('Raj Menon')),'Persona login not ready');await page.eval(name=>{[...document.querySelectorAll('button')].find(b=>b.textContent.includes(name)).click();return true;},name);await wait(()=>location.pathname.startsWith('/portal')&&!!document.querySelector('.portal-root'),'Sign in failed');await sleep(700);}
+async function snap(name){await page.screenshot({path:resolve(out,name+'.png'),format:'png'});}
+try {
+ await signIn('Raj Menon');
+ await wait(()=>!!document.querySelector('.workspace-guide-launch button'),'Guide not loaded');
+ assert(await page.eval(()=>!document.querySelector('.workspace-guide')),'Tour starts unobtrusively collapsed');
+ await page.eval(()=>{document.querySelector('.workspace-guide-launch button').click();return true;});await sleep(350);
+ assert(await page.eval(()=>!!document.querySelector('.workspace-guide')),'Start opens the in-page tour');
+ assert(await page.eval(()=>document.querySelector('.guide-current').textContent.includes('Overview')),'Client tour starts at overview');
+ assert(await page.eval(()=>!document.querySelector('.guide-route a[href*="/admin"]')&&!document.querySelector('.guide-route a[href*="/publisher"]')&&!document.querySelector('.guide-route a[href*="/moderation"]')),'Client itinerary excludes privileged tools');
+ await snap('client-overview');
+ await page.eval(()=>{document.querySelector('.guide-next').click();return true;});await wait(()=>location.pathname==='/portal/playground','Next did not navigate');await sleep(500);
+ assert(await page.eval(()=>document.querySelector('.guide-current').textContent.includes('Sandbox')),'Tour stays open across route changes');
+ assert(await page.eval(()=>Number(document.querySelector('.guide-progress').getAttribute('aria-valuenow'))===2),'Only visited pages count toward progress');
+ await page.eval(()=>{document.querySelector('.guide-next').click();return true;});await wait(()=>location.pathname==='/portal/observations','Observation step unavailable');await sleep(450);
+ await page.eval(()=>{document.querySelector('.guide-inline-action').click();return true;});await wait(()=>location.pathname==='/portal/observations/new','Draft link did not navigate');await sleep(500);
+ assert(await page.eval(()=>document.querySelector('.guide-explanation h3').textContent.includes('privately')),'Draft creation has contextual guidance');
+ assert(await page.eval(()=>document.querySelector('.portal-route-crumbs').textContent.includes('Observations')&&document.querySelector('.portal-route-crumbs [aria-current="page"]').textContent==='Create'),'Nested page breadcrumbs link to parent');
+ assert(await page.eval(()=>document.querySelector('.guide-explanation').textContent.includes('No sharing')),'Guide does not imply saving publishes a draft');
+ await snap('draft-guidance');
+ await page.eval(()=>{document.querySelector('[aria-label="Minimize guide"]').click();return true;});await sleep(200);
+ assert(await page.eval(()=>!!document.querySelector('.workspace-guide-launch')&&!document.querySelector('.workspace-guide')),'Minimize preserves a compact guide');
+ await go('/portal/observations/new');
+ assert(await page.eval(()=>document.querySelector('.workspace-guide-launch').textContent.includes('3 of')),'Progress persists after refresh');
+ await page.eval(()=>{document.querySelector('#portal-guide-trigger').click();return true;});await sleep(200);
+ await page.eval(()=>{document.querySelector('.portal-theme-button').click();return true;});await sleep(250);await snap('tour-dark');
+ assert(await page.eval(()=>document.querySelector('.portal-root').classList.contains('portal-dark')),'Guide supports existing dark appearance');
+ await page.eval(()=>{document.querySelector('.portal-theme-button').click();return true;});
+ await page.setViewport({width:390,height:844,mobile:true});await sleep(450);
+ assert(await page.eval(()=>document.documentElement.scrollWidth<=innerWidth+1),'Mobile guide has no page overflow');
+ assert(await page.eval(()=>document.querySelector('.guide-next').getBoundingClientRect().right<=innerWidth),'Mobile navigation controls fit');await snap('tour-mobile');
+ await page.eval(()=>{document.querySelector('[aria-label="Restart guide"]').click();return true;});await wait(()=>location.pathname==='/portal','Restart did not return to overview');await sleep(450);
+ assert(await page.eval(()=>document.querySelector('.guide-progress').getAttribute('aria-valuenow')==='1'),'Restart resets visited progress');
+ await page.eval(()=>{document.querySelector('.guide-end').click();return true;});await sleep(250);assert(await page.eval(()=>!document.querySelector('.workspace-guide')),'End tour returns control to normal workspace');
+ await page.setViewport({width:1440,height:1000});
+ await signIn('Mei Tan');await page.eval(()=>{document.querySelector('.workspace-guide-launch button').click();return true;});await sleep(350);
+ assert(await page.eval(()=>document.querySelector('.guide-progress').getAttribute('aria-valuenow')==='1'),'Moderator does not inherit client progress');
+ assert(await page.eval(()=>!!document.querySelector('.guide-route a[href="/portal/moderation"]')&&!document.querySelector('.guide-route a[href*="/admin"]')),'Moderator itinerary includes review but not administration');
+ await page.eval(()=>{document.querySelector('.guide-route a[href="/portal/moderation"]').click();return true;});await wait(()=>location.pathname==='/portal/moderation','Moderator route did not open');await sleep(450);await snap('moderator-tour');
+ await signIn('Priya Nair');await page.eval(()=>{document.querySelector('#portal-guide-trigger').click();return true;});await sleep(350);
+ assert(await page.eval(()=>document.querySelectorAll('.guide-route a[href^="/portal/admin?"]').length===7),'Admin tour covers all seven operational tabs');
+ await page.eval(()=>{document.querySelector('.guide-route a[href="/portal/admin?tab=audit"]').click();return true;});await wait(()=>location.search.includes('tab=audit'),'Audit tab did not navigate');await sleep(500);
+ assert(await page.eval(()=>document.querySelector('.guide-current').textContent.includes('Audit')),'Guide follows query-string tab navigation');await snap('admin-audit');
+ await signIn('Leo Fernandes');await page.eval(()=>{document.querySelector('#portal-guide-trigger').click();return true;});await sleep(300);
+ assert(await page.eval(()=>document.querySelectorAll('.guide-route a[href^="/portal/publisher?"]').length===3&&!document.querySelector('.guide-route a[href*="/admin"]')),'Publisher sees content, broadcasts and media only');
+ await signIn('Maya Lindqvist');await wait(()=>location.pathname==='/portal/workspace','Workspace selection missing');
+ assert(await page.eval(()=>!document.querySelector('.workspace-guide')),'Unselected workspace does not launch a misleading tour');
+ await page.eval(()=>{[...document.querySelectorAll('form button')].find(b=>b.textContent.includes('Saffron Capital')).click();return true;});await wait(()=>location.pathname==='/portal','First workspace did not open');await sleep(600);
+ await page.eval(()=>{document.querySelector('#portal-guide-trigger').click();return true;});await sleep(300);
+ await page.eval(()=>{document.querySelector('.guide-next').click();return true;});await wait(()=>location.pathname==='/portal/playground','First workspace tour did not navigate');await sleep(400);
+ assert(await page.eval(()=>Number(document.querySelector('.guide-progress').getAttribute('aria-valuenow'))===2),'Multi-membership user records visits in selected workspace');
+ await go('/portal/workspace');await page.eval(()=>{[...document.querySelectorAll('form button')].find(b=>b.textContent.includes('Harbourline Bank')).click();return true;});await wait(()=>location.pathname==='/portal','Second workspace did not open');await sleep(600);
+ assert(await page.eval(()=>document.querySelector('.workspace-guide-launch')?.textContent.includes('Start tour') || document.querySelector('.guide-progress')?.getAttribute('aria-valuenow')==='1'),'Second workspace starts with independent progress');
+ await go('/portal/observations/new');await page.eval(()=>{document.querySelector('#portal-guide-trigger').click();return true;});await sleep(400);
+ assert(await page.eval(()=>location.pathname==='/portal/observations/new'),'Opening guide on a draft keeps the current form route');
+ await page.eval(()=>{document.querySelector('textarea[name=body]').scrollIntoView();return true;});await sleep(200);await page.eval(()=>{document.querySelector('#portal-guide-trigger').click();return true;});await sleep(900);
+ assert(await page.eval(()=>document.querySelector('#workspace-guide').getBoundingClientRect().top>=70&&document.querySelector('#workspace-guide').getBoundingClientRect().top<180),'Toolbar Guide brings guidance into view from a scrolled form');
+ await page.setViewport({width:768,height:1000});await sleep(350);assert(await page.eval(()=>document.documentElement.scrollWidth<=innerWidth+1),'Tablet layout has no horizontal overflow');await snap('tour-tablet');
+ await page.send('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});await sleep(150);assert(await page.eval(()=>parseFloat(getComputedStyle(document.querySelector('.guide-progress > span')).transitionDuration)<0.001),'Guide respects reduced motion');
+ await page.setViewport({width:1440,height:1000});
+ await go('/');assert(await page.eval(()=>!document.querySelector('.workspace-guide-launch')&&!document.querySelector('#portal-guide-trigger')),'Public website has no portal tour');
+ assert(page.consoleErrors.length===0,'No browser runtime errors');
+} catch(error) {console.log('Failure state',await page.eval(()=>({path:location.href,guide:document.querySelector('.workspace-guide')?.textContent,next:document.querySelector('.guide-next')?.getAttribute('href'),body:document.body.textContent.slice(0,700)})));await snap('failure');throw error;} finally {writeFileSync(resolve(out,'checks.json'),JSON.stringify({checks,errors:page.consoleErrors},null,2));console.log(JSON.stringify({checks,errors:page.consoleErrors},null,2));await browser.close();}

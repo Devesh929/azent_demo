@@ -65,12 +65,13 @@ npm test                  # unit tests for the access rules, de-identification a
 npm run test:acceptance   # live checks against Supabase (and the running site): RLS, append-only logs,
                           # illegal transitions, withdrawal propagation, cohort suppression, media/AIRA leakage
 npm run fl:demo           # federated learning demo (Python 3 + numpy), reports rounds into the portal
+npm run test:tour         # dashboard guide checks; start production preview on localhost:3001 first
 npm run test:ui           # browser checks and screenshots; start the app first; defaults to localhost:3001, or set UI_CHECK_URL
 ```
 
 The interface uses Azentio's teal/mint palette and Poppins, a Lenis/GSAP landing experience,
 interactive synthetic analysis/document/KYC/credit previews, and a frosted-glass portal with
-light/dark appearance. See [UI direction](docs/UI-DIRECTION.md). Browser captures and the latest
+light/dark appearance. See [UI direction](docs/UI-DIRECTION.md). Every dashboard includes a role-aware Workspace guide with linked breadcrumbs, contextual steps and per-user/workspace visit progress; use the Guide button in the top bar. Browser captures and the latest
 interaction-check results are written to `.taste-skill/light-site/qa/`. Use `localhost:3000` for development;
 Next.js restricts development assets requested through alternate hosts.
 

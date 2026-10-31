@@ -27,6 +27,7 @@ export default async function PortalLayout({ children }: LayoutProps<"/portal">)
       user={{ name: v.displayName, email: v.email, title: v.title }}
       workspace={v.active ? { name: v.active.orgName, kind: v.active.orgKind, roles: v.active.roles } : null}
       canSwitch={usable.length > 1}
+      tourKey={v.active && (v.active.orgKind === "internal" || v.active.termsAcceptedAt) ? `${v.userId}:${v.active.id}` : null}
       unread={count ?? 0}
       signOut={signOut}
     >

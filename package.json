@@ -14,7 +14,8 @@
     "test": "tsx --test tests/*.test.ts",
     "test:acceptance": "tsx scripts/acceptance.ts",
     "test:ui": "node scripts/light-site-check.mjs",
-    "fl:demo": "python fl/run_demo.py --ingest"
+    "fl:demo": "python fl/run_demo.py --ingest",
+    "test:tour": "node scripts/portal-tour-check.mjs"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

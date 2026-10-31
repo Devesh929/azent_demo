@@ -5,11 +5,13 @@ import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import {
   Bell, Book, Bot, ChevronsUpDown, Cpu, FlaskConical, Home, Layers, LifeBuoy, Lightbulb, LogOut, Megaphone, Menu, Network,
-  PenLine, Radio, Search, Settings, Shield, Sparkles, Users, X, Sun, Moon, ChevronRight,
+  PenLine, Radio, Search, Settings, Shield, Sparkles, Users, X, Sun, Moon, Compass,
 } from "lucide-react";
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { Suspense, useEffect, useRef, useState, type ReactNode } from "react";
 import { Wordmark } from "@/components/site/SiteHeader";
 import { Avatar } from "@/components/fx/static";
+import { PortalBreadcrumbs, PortalTour } from "./PortalTour";
+import "./portal-tour.css";
 import { cn } from "@/lib/utils";
 
 const ICONS: Record<string, typeof Home> = {
@@ -23,6 +25,7 @@ export type ShellProps = {
   user: { name: string; email: string; title: string | null };
   workspace: { name: string; kind: "internal" | "client"; roles: string[] } | null;
   canSwitch: boolean;
+  tourKey: string | null;
   unread: number;
   signOut: () => Promise<void>;
   children: ReactNode;
@@ -60,10 +63,11 @@ function NavList({ nav, path, onNavigate }: { nav: ShellProps["nav"]; path: stri
   );
 }
 
-export function PortalShell({ nav, user, workspace, canSwitch, unread, signOut, children }: ShellProps) {
+export function PortalShell({ nav, user, workspace, canSwitch, tourKey, unread, signOut, children }: ShellProps) {
   const path = usePathname();
   const reduce = useReducedMotion();
   const [dark, setDark] = useState(false);
+  const [guideOpen, setGuideOpen] = useState(false);
   const searchInput = useRef<HTMLInputElement>(null);
   const drawerRef = useRef<HTMLElement>(null);
   const menuButton = useRef<HTMLButtonElement>(null);
@@ -140,13 +144,14 @@ export function PortalShell({ nav, user, workspace, canSwitch, unread, signOut, 
         <header className="portal-topbar sticky top-0 z-30 flex h-[72px] items-center gap-5 px-4 backdrop-blur-xl sm:px-8">
           <button ref={menuButton} onClick={() => setOpen(true)} className="grid size-10 place-items-center rounded-full text-ink lg:hidden" aria-label="Open menu" aria-expanded={open}><Menu size={20} /></button>
           <div className="portal-mobile-title lg:hidden"><strong>{activeTitle}</strong><span>{workspace?.name}</span></div>
-          <div className="portal-breadcrumb"><span>{workspace?.kind === "internal" ? "Employee" : "Workspace"}</span><ChevronRight size={11}/><strong>{activeTitle}</strong></div>
+          <PortalBreadcrumbs nav={nav} />
           <form action="/search" className="relative ml-auto hidden max-w-[300px] flex-1 sm:block" role="search">
             <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-muted" />
             <input ref={searchInput} name="q" placeholder="Search your workspace…" aria-label="Search"
               className="neu-inset h-10 w-full rounded-full pl-10 pr-4 text-[14px] outline-none ring-1 ring-white/[0.06] placeholder:text-muted focus:ring-2 focus:ring-accent/70" />
           </form>
           <div className="ml-auto flex items-center gap-2">
+            {workspace && tourKey && <button id="portal-guide-trigger" type="button" className="portal-guide-trigger" onClick={() => { setGuideOpen(true); requestAnimationFrame(() => document.getElementById("workspace-guide")?.scrollIntoView({ behavior: reduce ? "instant" : "smooth", block: "start" })); }} aria-expanded={guideOpen} aria-controls="workspace-guide" aria-label="Show workspace guide"><Compass size={17} /><span>Guide</span></button>}
             <button type="button" className="portal-theme-button text-muted transition hover:text-ink" onClick={()=>setDark(!dark)} aria-label={dark ? "Use light appearance" : "Use dark appearance"} title={dark ? "Light appearance" : "Dark appearance"}>{dark ? <Sun size={17}/> : <Moon size={17}/>}</button>
             <Link href="/portal/aira" className="border-beam glass hidden items-center gap-2 rounded-full px-4 py-2 text-[13px] font-medium text-ink transition hover:-translate-y-px sm:flex"><Bot size={15} className="text-accent" /> Ask AIRA</Link>
             <Link href="/portal/notifications" className="neu relative grid size-10 place-items-center rounded-full text-ink-2 transition hover:-translate-y-px hover:text-ink" aria-label={`Notifications${unread ? `, ${unread} unread` : ""}`}>
@@ -156,6 +161,7 @@ export function PortalShell({ nav, user, workspace, canSwitch, unread, signOut, 
           </div>
         </header>
         <motion.main key={path} initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: reduce ? 0 : 0.35, ease: [0.22, 1, 0.36, 1] }} className="portal-content w-full max-w-[1440px] px-4 pb-24 pt-6 sm:px-8">
+          {workspace && tourKey && <Suspense fallback={null}><PortalTour key={tourKey} identity={tourKey} nav={nav} workspace={workspace} canSwitch={canSwitch} open={guideOpen} onOpenChange={setGuideOpen} /></Suspense>}
           {children}
         </motion.main>
       </div>
