@@ -1,0 +1,125 @@
+{
+  "checks": [
+    {
+      "label": "Tour starts unobtrusively collapsed",
+      "passed": true
+    },
+    {
+      "label": "Start opens the in-page tour",
+      "passed": true
+    },
+    {
+      "label": "Client tour starts at overview",
+      "passed": true
+    },
+    {
+      "label": "Client itinerary excludes privileged tools",
+      "passed": true
+    },
+    {
+      "label": "Tour stays open across route changes",
+      "passed": true
+    },
+    {
+      "label": "Only visited pages count toward progress",
+      "passed": true
+    },
+    {
+      "label": "Draft creation has contextual guidance",
+      "passed": true
+    },
+    {
+      "label": "Nested page breadcrumbs link to parent",
+      "passed": true
+    },
+    {
+      "label": "Guide does not imply saving publishes a draft",
+      "passed": true
+    },
+    {
+      "label": "Minimize preserves a compact guide",
+      "passed": true
+    },
+    {
+      "label": "Progress persists after refresh",
+      "passed": true
+    },
+    {
+      "label": "Guide supports existing dark appearance",
+      "passed": true
+    },
+    {
+      "label": "Mobile guide has no page overflow",
+      "passed": true
+    },
+    {
+      "label": "Mobile navigation controls fit",
+      "passed": true
+    },
+    {
+      "label": "Restart resets visited progress",
+      "passed": true
+    },
+    {
+      "label": "End tour returns control to normal workspace",
+      "passed": true
+    },
+    {
+      "label": "Moderator does not inherit client progress",
+      "passed": true
+    },
+    {
+      "label": "Moderator itinerary includes review but not administration",
+      "passed": true
+    },
+    {
+      "label": "Admin tour covers all seven operational tabs",
+      "passed": true
+    },
+    {
+      "label": "Guide follows query-string tab navigation",
+      "passed": true
+    },
+    {
+      "label": "Publisher sees content, broadcasts and media only",
+      "passed": true
+    },
+    {
+      "label": "Unselected workspace does not launch a misleading tour",
+      "passed": true
+    },
+    {
+      "label": "Multi-membership user records visits in selected workspace",
+      "passed": true
+    },
+    {
+      "label": "Second workspace starts with independent progress",
+      "passed": true
+    },
+    {
+      "label": "Opening guide on a draft keeps the current form route",
+      "passed": true
+    },
+    {
+      "label": "Toolbar Guide brings guidance into view from a scrolled form",
+      "passed": true
+    },
+    {
+      "label": "Tablet layout has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "label": "Guide respects reduced motion",
+      "passed": true
+    },
+    {
+      "label": "Public website has no portal tour",
+      "passed": true
+    },
+    {
+      "label": "No browser runtime errors",
+      "passed": true
+    }
+  ],
+  "errors": []
+}

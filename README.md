@@ -84,6 +84,10 @@ See [the complete Vercel deployment guide](docs/DEPLOYMENT.md) for environment v
 3. `vercel.json` schedules a daily outbox sweep; emails are also sent right after they are queued.
 4. Run the FL demo from any machine with `NEXT_PUBLIC_SITE_URL` pointing at the deployment to ingest a round.
 
+## Portal design handoff
+
+For another agent reproducing or extending the dashboard, read [the complete portal design handoff](docs/PORTAL-DESIGN-HANDOFF.md). It includes exact colours, CSS materials, component APIs, typography, layout, animations, tour behaviour, screenshots and the skills used. A short [agent brief](docs/portal-design-system/AGENT-BRIEF.md) and [resolved tokens](docs/portal-design-system/tokens.json) accompany it.
+
 ## Project map
 
 ```

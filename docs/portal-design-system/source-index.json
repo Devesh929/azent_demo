@@ -1,0 +1,571 @@
+{
+  "uiBaselineCommit": "ca4d8786d051585d5ab97fd015fdfcc7081a1fa2",
+  "note": "Exact source slice, requires the complete app for execution. No environment files or dependencies included.",
+  "files": [
+    {
+      "path": ".claude/skills/taste-skill/assets/app.css",
+      "bytes": 16134,
+      "sha256": "a7ae6a5f4efb53f0eaf944d05b85cace394d4c985cc37d919d609776d8660a52"
+    },
+    {
+      "path": ".claude/skills/taste-skill/assets/base.css",
+      "bytes": 6625,
+      "sha256": "d4f2e1681832fd8184d58717ac95c1e0b004705f4661f096ddf90143865ec373"
+    },
+    {
+      "path": ".claude/skills/taste-skill/assets/base.js",
+      "bytes": 2199,
+      "sha256": "d91500dacc88b093a35d54c6e1d55113c63be7664f64a3f75f1b50706b2dda13"
+    },
+    {
+      "path": ".claude/skills/taste-skill/assets/charts.js",
+      "bytes": 59635,
+      "sha256": "5291a21a1bf993a5938c12637a8fb72f8b2541166caac226cfaf2589b124d758"
+    },
+    {
+      "path": ".claude/skills/taste-skill/assets/scenes/stage.css",
+      "bytes": 1169,
+      "sha256": "018f3ef9c960373519ed7e715be4991739fe50667d3dd48f0a12718c34a166c7"
+    },
+    {
+      "path": ".claude/skills/taste-skill/assets/scenes/stage.js",
+      "bytes": 7825,
+      "sha256": "1a2f534e1c5ae684ce534f58842fa00369609dac250e33d85b777bb62d94dcd2"
+    },
+    {
+      "path": ".claude/skills/taste-skill/evals/evals.json",
+      "bytes": 8274,
+      "sha256": "526d900bc60d043b6d96462d43f6139746402cd8fb010d98a890cc89e81d088b"
+    },
+    {
+      "path": ".claude/skills/taste-skill/library/app.json",
+      "bytes": 75556,
+      "sha256": "63e44887c523683973d3b59b25a39b7c6a7fa3794fb850f78ecb1fa7b5c58f62"
+    },
+    {
+      "path": ".claude/skills/taste-skill/library/directions.json",
+      "bytes": 62543,
+      "sha256": "535163a2341d38a2372981a3634ca33f43ce80ee10da7eda259bc646f82f3f95"
+    },
+    {
+      "path": ".claude/skills/taste-skill/library/heroes.json",
+      "bytes": 109326,
+      "sha256": "fc8f810dbf3bcf20f232903e3e973261a38929c6e7e689291181352b8210ac07"
+    },
+    {
+      "path": ".claude/skills/taste-skill/library/motions.json",
+      "bytes": 9125,
+      "sha256": "2f1b6750397a4081620b92d354c20b556b5062d0ef32f1013929537e6dba7bfd"
+    },
+    {
+      "path": ".claude/skills/taste-skill/library/palettes.json",
+      "bytes": 36237,
+      "sha256": "74c88b35340234c56f21954be5b54592f374963936613052fa0579cf14266d84"
+    },
+    {
+      "path": ".claude/skills/taste-skill/library/photos.json",
+      "bytes": 167871,
+      "sha256": "62faa2263a02d02b0dac2fa54829aa7290e80a286d32b75d1831a111a46e6486"
+    },
+    {
+      "path": ".claude/skills/taste-skill/library/sections.json",
+      "bytes": 280575,
+      "sha256": "6d15b05951d022598dcef68263d9cbb1c969658794c8c20fbcbceb5a7201e685"
+    },
+    {
+      "path": ".claude/skills/taste-skill/library/sites.json",
+      "bytes": 877423,
+      "sha256": "cfc5d68a8e3c06ca65f042c376f844ea5b0c1810809da2589779774a94e7f525"
+    },
+    {
+      "path": ".claude/skills/taste-skill/library/type.json",
+      "bytes": 84349,
+      "sha256": "6eb96a60a1c85ce02e7bfe71b61d6a9881c84e85014bd28a1d927bfbc0f3fc7c"
+    },
+    {
+      "path": ".claude/skills/taste-skill/README.md",
+      "bytes": 5426,
+      "sha256": "5b07bb1b40ee965223864d0bce2a8f7f891a8f54c52c083d02e8f8bf3a836c57"
+    },
+    {
+      "path": ".claude/skills/taste-skill/references/app-screens.md",
+      "bytes": 86557,
+      "sha256": "84b4bd52e47e3f2b6a6e90767866e9a9059a99589e43544f5344d54bf5ae8b0c"
+    },
+    {
+      "path": ".claude/skills/taste-skill/references/colour.md",
+      "bytes": 6994,
+      "sha256": "fa634ab3a4e0f9159b12c1d5450f708e1baec2d4285dd05999c758da9d70bbc1"
+    },
+    {
+      "path": ".claude/skills/taste-skill/references/copy.md",
+      "bytes": 9613,
+      "sha256": "6de6cef4451a98660b4a4641d2c5f79f5281c18cd11016ef321d4a56e6c9cee2"
+    },
+    {
+      "path": ".claude/skills/taste-skill/references/critique.md",
+      "bytes": 11339,
+      "sha256": "8fd1487c3ea43ba9877ab508db2833cc8dff7b59a2f962eb298ef0534598ed76"
+    },
+    {
+      "path": ".claude/skills/taste-skill/references/imagery.md",
+      "bytes": 51816,
+      "sha256": "997e995bbd8e2d1b98b0c5b6c39baa992beb60abc33a8267585f15f70f1d6c15"
+    },
+    {
+      "path": ".claude/skills/taste-skill/references/layout.md",
+      "bytes": 18607,
+      "sha256": "f14a8a9c1c58d98be971c803ffb8ef91cfc4e5a873ee888d9c7fceefa547e664"
+    },
+    {
+      "path": ".claude/skills/taste-skill/references/motion.md",
+      "bytes": 56380,
+      "sha256": "52149b254d400513bf27d21e681e9c18bda806cbb04bbd0ace659bf1c454d213"
+    },
+    {
+      "path": ".claude/skills/taste-skill/references/research.md",
+      "bytes": 24618,
+      "sha256": "b52b2939a2196c201b4e4b6811728c2a6e0c54c79b0a603db72456debc62b12a"
+    },
+    {
+      "path": ".claude/skills/taste-skill/references/scenes.md",
+      "bytes": 9991,
+      "sha256": "765f1cc2b1e79e16a171737f8bdd47636d01c7d74ecd5a4b29cc5dedea3f6605"
+    },
+    {
+      "path": ".claude/skills/taste-skill/references/tells.md",
+      "bytes": 7535,
+      "sha256": "a591b54f3a75722910f4c3dda5a420966f8b49a359628f30281929a8a91fe732"
+    },
+    {
+      "path": ".claude/skills/taste-skill/references/type.md",
+      "bytes": 8665,
+      "sha256": "2419a8fb73ba97ae2ea81aa361a6ec6b95da64641fe1830e6937bb5b73f54168"
+    },
+    {
+      "path": ".claude/skills/taste-skill/scripts/assets.mjs",
+      "bytes": 65387,
+      "sha256": "27b8c99be3a6ef7e66b7fcefa5abeceabc0ae20535975e67e079f5ff384c4b39"
+    },
+    {
+      "path": ".claude/skills/taste-skill/scripts/draw.mjs",
+      "bytes": 54724,
+      "sha256": "5dda04dc79b790972be0b3b5c11f1663e0ab1d2f27ff36c70be5cc2f7deb6932"
+    },
+    {
+      "path": ".claude/skills/taste-skill/scripts/inspect.mjs",
+      "bytes": 29161,
+      "sha256": "89f778805f33c81059a7158a5e06aee72699f0711a8ebe71ca84379f6cf37008"
+    },
+    {
+      "path": ".claude/skills/taste-skill/scripts/lib/app-draw.mjs",
+      "bytes": 14918,
+      "sha256": "952a381279c89bffb4c541844725e21a88ee6a9620a878d9c8b6c7fdb97ef5f7"
+    },
+    {
+      "path": ".claude/skills/taste-skill/scripts/lib/cdp.mjs",
+      "bytes": 12168,
+      "sha256": "33fd60f0efe967d25643cfe6920ff2543da285b6bf85f3d991f65d753a06d655"
+    },
+    {
+      "path": ".claude/skills/taste-skill/scripts/lib/inspection-files.mjs",
+      "bytes": 487,
+      "sha256": "4b1861006d1bacd015bd105ebf51ab47ecd7ae3b529c7179d8dd0da2209b7cb4"
+    },
+    {
+      "path": ".claude/skills/taste-skill/scripts/lib/probe.mjs",
+      "bytes": 83481,
+      "sha256": "b022ff56f74fa1f0e004b9f0ba58d3f4ad4254cf65cf3ca50fee08fd5f27215a"
+    },
+    {
+      "path": ".claude/skills/taste-skill/scripts/lib/rules.mjs",
+      "bytes": 37541,
+      "sha256": "d1c54989b55b433533693eb72f5f72bf100b0f873c728e251d4ad750d602694e"
+    },
+    {
+      "path": ".claude/skills/taste-skill/scripts/lint.mjs",
+      "bytes": 11866,
+      "sha256": "5ea16dac38742505ddea95d65f7d8029e6f9590718ad07a0343426e99250af4e"
+    },
+    {
+      "path": ".claude/skills/taste-skill/scripts/scenes.mjs",
+      "bytes": 9104,
+      "sha256": "fcba8308b18e1c57471dfd0e95432f9c865c84493110be2b1e1a15e14c47f206"
+    },
+    {
+      "path": ".claude/skills/taste-skill/SKILL.md",
+      "bytes": 40079,
+      "sha256": "a2adda18568ae014f602e42b0727fb2e4b852f109d722b9f1e3067069d5c46ea"
+    },
+    {
+      "path": "next.config.ts",
+      "bytes": 762,
+      "sha256": "048ddfbec140664996f9b2f4348db620ffbf65f35497d7443c97dbc02ab8d386"
+    },
+    {
+      "path": "package.json",
+      "bytes": 1613,
+      "sha256": "68bcaba524f57ea1cd13f4054aedebe70fa149f2d758888462685f5dd9802f21"
+    },
+    {
+      "path": "scripts/export-portal-design.mjs",
+      "bytes": 3514,
+      "sha256": "ff9d9d4131add6b46e4b808099c58d7a5a82a953cd416463011fc4599ec8bfb8"
+    },
+    {
+      "path": "scripts/portal-tour-check.mjs",
+      "bytes": 11010,
+      "sha256": "999af8619df3106f1a3b860cf754f9d37ecd131d5c1efbc991570fe066a7a90c"
+    },
+    {
+      "path": "src/app/globals.css",
+      "bytes": 10228,
+      "sha256": "4af8fc258a4b6e3709788a32b76ce2b50fc6fc9a71a0f6bec107274500096f31"
+    },
+    {
+      "path": "src/app/layout.tsx",
+      "bytes": 1516,
+      "sha256": "1d5dd01fe807d6aa23bae2dac225e9343db465b36a56bdfe485e3cac51c64bed"
+    },
+    {
+      "path": "src/app/liquid.css",
+      "bytes": 25956,
+      "sha256": "ff7995b5973c48659265ef790ed53f6f80b681b55c2f53cc801d1db85cac6db1"
+    },
+    {
+      "path": "src/app/portal/admin/actions.ts",
+      "bytes": 6410,
+      "sha256": "a72e94df34112fd8aa803c9e5d45803c032b81d0be062903a78e82eaf40f9cf9"
+    },
+    {
+      "path": "src/app/portal/admin/page.tsx",
+      "bytes": 15634,
+      "sha256": "5279bddef80759def4716b7c4f29b84d7318152fa2c2836f7dd8e4c453ecaf0d"
+    },
+    {
+      "path": "src/app/portal/aira/page.tsx",
+      "bytes": 996,
+      "sha256": "2c1f4f37ccb918b4b096fe291f5e14f15d6db9784e16b1286408dc7fd62f5c57"
+    },
+    {
+      "path": "src/app/portal/fl/page.tsx",
+      "bytes": 10760,
+      "sha256": "7edb05480dd1648af3b9feaa16ac85d7cc90aa42584408023babb1c059f50899"
+    },
+    {
+      "path": "src/app/portal/ideas/[id]/page.tsx",
+      "bytes": 6648,
+      "sha256": "865d3af0e3052147ec712a5412f92bc69c3ccd9f793d84523c96d0f1abbff0cc"
+    },
+    {
+      "path": "src/app/portal/ideas/actions.ts",
+      "bytes": 4478,
+      "sha256": "297371015f1d9b1fb58ec6c2b75c5ea27bad7b69b365e0a8a62c18342938d6ad"
+    },
+    {
+      "path": "src/app/portal/ideas/new/page.tsx",
+      "bytes": 1492,
+      "sha256": "de9dca2d75aeddcb43deb60bd39c3625e55b6db222a2ac29e18db215b2a403aa"
+    },
+    {
+      "path": "src/app/portal/ideas/page.tsx",
+      "bytes": 2966,
+      "sha256": "5730d83847f4d9f33b78b0211d70b878f0bfc035643f598c7cdae50bac2f35d8"
+    },
+    {
+      "path": "src/app/portal/innovation/page.tsx",
+      "bytes": 6452,
+      "sha256": "ab34fe2b6890b79946263b5230bdaff1c1644dea66cf18d08609cd9e4ec464fc"
+    },
+    {
+      "path": "src/app/portal/layout.tsx",
+      "bytes": 1982,
+      "sha256": "d89c8db3fb7d14b5c3fd7312d6accf8f913046cf063a2b1644a96dc894a49083"
+    },
+    {
+      "path": "src/app/portal/learning/[id]/page.tsx",
+      "bytes": 6383,
+      "sha256": "af526c6d52a01187d8055e3b1f5d51b9c8ae66f85c0b41dbee145cd857630950"
+    },
+    {
+      "path": "src/app/portal/learning/actions.ts",
+      "bytes": 4059,
+      "sha256": "0d775eab4619ee3a4bc69c5cfc61590c3d757f916cbc22966106c1a7d994ec0b"
+    },
+    {
+      "path": "src/app/portal/learning/export/route.ts",
+      "bytes": 1602,
+      "sha256": "1f8dcedeb65af35a461a7f9f9e3381dfea3cd2d6e94d30255ce54c84c23f3a38"
+    },
+    {
+      "path": "src/app/portal/learning/page.tsx",
+      "bytes": 7459,
+      "sha256": "9879f36f901a6e0d32315d5c0268053d7e98c00973dd43163808ab5677f47116"
+    },
+    {
+      "path": "src/app/portal/learning/themes/[id]/page.tsx",
+      "bytes": 4596,
+      "sha256": "9a5948c296bbafbb98ed8b289b1fc92d8f5a993567fe49e3b28f3155072a699b"
+    },
+    {
+      "path": "src/app/portal/learning/themes/page.tsx",
+      "bytes": 3340,
+      "sha256": "5b90351b1222cc922f0b22aea17eeed98bb60ed52332a6489ac4e9264617ce1d"
+    },
+    {
+      "path": "src/app/portal/library/[id]/page.tsx",
+      "bytes": 4022,
+      "sha256": "1431c865f51d61491841e1954dc9fb0a5a7bb7f19bbeb30788a0a8e81dc6e6d7"
+    },
+    {
+      "path": "src/app/portal/library/page.tsx",
+      "bytes": 2444,
+      "sha256": "27f68ad345a7dbdecce02f695cae406537dddec281a2982135129dc3d3e1f502"
+    },
+    {
+      "path": "src/app/portal/live/page.tsx",
+      "bytes": 4100,
+      "sha256": "4fb01d19c862bac7ebf84483c1d6faa2cbe8c76d99b6bead827d1a3eeeabfe68"
+    },
+    {
+      "path": "src/app/portal/moderation/[id]/page.tsx",
+      "bytes": 6960,
+      "sha256": "474ffaac2876a571542333f1e0881ca784fc55aebeef974b5941356fc09a548a"
+    },
+    {
+      "path": "src/app/portal/moderation/actions.ts",
+      "bytes": 8849,
+      "sha256": "d6fce8c27d424a65ac719ca803c074e03c3ae23b623744ba148799003df614b3"
+    },
+    {
+      "path": "src/app/portal/moderation/page.tsx",
+      "bytes": 4385,
+      "sha256": "40f462ddf046f17a90a35e06446c0953b3664d050f8a1bcead0df7f45c4a298e"
+    },
+    {
+      "path": "src/app/portal/notifications/page.tsx",
+      "bytes": 2976,
+      "sha256": "a70bbd3aa9b904df36a5d7c49440a53cafff136a26e4ef1d4a9788c18c06572a"
+    },
+    {
+      "path": "src/app/portal/observations/[id]/page.tsx",
+      "bytes": 8734,
+      "sha256": "74d7bf12333feeb6fdc627bde681cb503459aecf9c81d2aabfe83734c3452ee4"
+    },
+    {
+      "path": "src/app/portal/observations/actions.ts",
+      "bytes": 10352,
+      "sha256": "c3d13145e52d48fe36977e4bc00fec2aada31ef61b6559b8b92d18e7edbd7539"
+    },
+    {
+      "path": "src/app/portal/observations/new/page.tsx",
+      "bytes": 950,
+      "sha256": "8f60708a8404daee2d21524a390c60231afe396046650695797759fc30656ec9"
+    },
+    {
+      "path": "src/app/portal/observations/page.tsx",
+      "bytes": 3286,
+      "sha256": "c7b9f37dfb916faee6ed1c3f997f97c31a0dcaa8c740b3d424d72083182841da"
+    },
+    {
+      "path": "src/app/portal/org/actions.ts",
+      "bytes": 5156,
+      "sha256": "d79c3f53416a8b1223863c97fe7193467aa4fe25866dc727eaaa13c51b91f311"
+    },
+    {
+      "path": "src/app/portal/org/page.tsx",
+      "bytes": 6757,
+      "sha256": "267537920080ebf5e338d00a64972136229ed7cc4cc088a368e2ffa92ff619b9"
+    },
+    {
+      "path": "src/app/portal/page.tsx",
+      "bytes": 14611,
+      "sha256": "389cc1743bd5c2d69b98c80ecf7907f25e532fe98e85fca3f7f5ff9b14c43c56"
+    },
+    {
+      "path": "src/app/portal/playground/[slug]/page.tsx",
+      "bytes": 1439,
+      "sha256": "42648f4730da7add54285b01addcf9da95a60ebb72be9caba41748c4abc34565"
+    },
+    {
+      "path": "src/app/portal/playground/actions.ts",
+      "bytes": 3165,
+      "sha256": "41057ae7e9a13bb445a01e15d86026cfadf9e62397a8963cbb278c9d3e6a3382"
+    },
+    {
+      "path": "src/app/portal/playground/page.tsx",
+      "bytes": 2947,
+      "sha256": "d67ad04f8a528f7dd945c5ffab5d39a91ad9e1fa50569872f8843fd91df1a1d2"
+    },
+    {
+      "path": "src/app/portal/publisher/actions.ts",
+      "bytes": 6833,
+      "sha256": "3d140d87269c0e2f94ca5cbceb708d839f1d8ad834373aacb05c159412577030"
+    },
+    {
+      "path": "src/app/portal/publisher/page.tsx",
+      "bytes": 4679,
+      "sha256": "2d41f3837cc9d64467a7c5dd98c053d8e7db837e86c5ee56421b3d1c2c2dc0b6"
+    },
+    {
+      "path": "src/app/portal/support/page.tsx",
+      "bytes": 3211,
+      "sha256": "0fdee5a51229775e34af44333ea0d0ab8f9c100d31928cc3658c2fe785d08726"
+    },
+    {
+      "path": "src/app/portal/workspace/actions.ts",
+      "bytes": 3025,
+      "sha256": "0b7137f737eda3469419711a32fe14771d5938d34371bcdc6408c3c63ee82810"
+    },
+    {
+      "path": "src/app/portal/workspace/page.tsx",
+      "bytes": 5797,
+      "sha256": "a73bd726707cc985710aa308141b4c6a83494bfe22ddbfebbed0a3063b50085e"
+    },
+    {
+      "path": "src/app/redesign.css",
+      "bytes": 40986,
+      "sha256": "484536c666fe3804437f4c1204f2444f00897f353ded20a4cae651a71a304c4a"
+    },
+    {
+      "path": "src/components/fx/client.tsx",
+      "bytes": 6097,
+      "sha256": "fcc8564e4a8cbe5dc701a85118b7921e5fc2a529692ca18bba0b16dd505db784"
+    },
+    {
+      "path": "src/components/fx/static.tsx",
+      "bytes": 5444,
+      "sha256": "7859ed2a012321778a7cafa5ae7625a13ae7dd915ac96deb4a6b7dd9cbeb6f73"
+    },
+    {
+      "path": "src/components/portal/AiraChat.tsx",
+      "bytes": 5579,
+      "sha256": "dabb2b3111e773f64a27dc034fdd94ed998c0e52c934c1a3ee282eb20fe69369"
+    },
+    {
+      "path": "src/components/portal/IdeaForms.tsx",
+      "bytes": 4605,
+      "sha256": "f36b25d4e0e92e688ad22bc4be8161b356460b5776a0b70a510b7df910fe05d2"
+    },
+    {
+      "path": "src/components/portal/InviteForm.tsx",
+      "bytes": 1303,
+      "sha256": "7c96685472f573f94ad08e0e6e95dee35174b660cc2be62b08722a1eb940c936"
+    },
+    {
+      "path": "src/components/portal/LearningForms.tsx",
+      "bytes": 2333,
+      "sha256": "85682d986a10f312a9de2da416644c51ce385ec1777147d4894f2b5bf7d59603"
+    },
+    {
+      "path": "src/components/portal/ModerationForm.tsx",
+      "bytes": 3761,
+      "sha256": "31ae96fa28cc2bc67f9a4ca2c6809b28d672055c02ebfee9c02e0a946dc73452"
+    },
+    {
+      "path": "src/components/portal/ObservationActions.tsx",
+      "bytes": 3761,
+      "sha256": "d4664f7e1fb69959478773465bb4be6455d6ca60ea3bf756fa8ee9ca5086dfae"
+    },
+    {
+      "path": "src/components/portal/ObservationForm.tsx",
+      "bytes": 7157,
+      "sha256": "764b3019fa22bd6cf6b5cdb0510ee6cd1e23e3573586d72b91637e03900f57d3"
+    },
+    {
+      "path": "src/components/portal/PlaygroundRunner.tsx",
+      "bytes": 8444,
+      "sha256": "f82f264088e34f69c5ec43e57d43b8a23b43b69176adc0b8dc58415059ce300f"
+    },
+    {
+      "path": "src/components/portal/portal-tour.css",
+      "bytes": 8905,
+      "sha256": "c0c5bf779f83db9800e330c61ecb133a84d3aed5129060b8f5d140267c2d6a7c"
+    },
+    {
+      "path": "src/components/portal/PortalShell.tsx",
+      "bytes": 11156,
+      "sha256": "2a49012e7150e3466a58c782f5a05cc0f0b52f8d5cf78319cb4bcd87ddffcd17"
+    },
+    {
+      "path": "src/components/portal/PortalTour.tsx",
+      "bytes": 8885,
+      "sha256": "82ac4a72277ad489b5a5f53ce4254d8693553b4dce630222564adaa5a09d437e"
+    },
+    {
+      "path": "src/components/portal/PublisherForms.tsx",
+      "bytes": 5842,
+      "sha256": "214288531054ccac7dd10fe392b78b9d1f840ad7213bcab3aa0a8112899f8b82"
+    },
+    {
+      "path": "src/components/portal/ui.tsx",
+      "bytes": 8054,
+      "sha256": "6df1dd36fa8b72a3d25714792f296d0fc90ec5de50a17c092361fe874dc77b5c"
+    },
+    {
+      "path": "src/components/portal/Welcome.tsx",
+      "bytes": 618,
+      "sha256": "23b873950ecf0b07096cca16846ab1ee56760339c8d35f2d9797e564fec32787"
+    },
+    {
+      "path": "src/components/site/SiteHeader.tsx",
+      "bytes": 5315,
+      "sha256": "a8ed2f919a5552dc3d6617e5635154b3177520dcbd27cb7c62042eceab3ee164"
+    },
+    {
+      "path": "src/components/ui/button.tsx",
+      "bytes": 1700,
+      "sha256": "2c943c03e20bc2c7776a6ff820d1014e28ec126ceba819b44009429cb5f452be"
+    },
+    {
+      "path": "src/components/ui/form.tsx",
+      "bytes": 3323,
+      "sha256": "fd71fa3bd90ff99fb4495462802090fabaec2d281ba1ffbf3c97d40f764bf5b1"
+    },
+    {
+      "path": "src/lib/authz/nav.ts",
+      "bytes": 2895,
+      "sha256": "29cc645b878fce2a962aeb5c751f71157ee8f4f23ce4423fe13ef3b2a965603e"
+    },
+    {
+      "path": "src/lib/authz/policy.ts",
+      "bytes": 2232,
+      "sha256": "ca921406e8e9dbcd5edfd06199cec51b8edcf2ecd37dc2a446bda93addf7567d"
+    },
+    {
+      "path": "src/lib/authz/rules.ts",
+      "bytes": 3861,
+      "sha256": "031a68dbb5b435f1522042f8cba7f982afdaa1074ac44174fd559bae66aebbf5"
+    },
+    {
+      "path": "src/lib/authz/viewer.ts",
+      "bytes": 5122,
+      "sha256": "8dfb8bc1bbc29a2fd2044385b80d14c312dc2e78827f7506770c4204166f8684"
+    },
+    {
+      "path": "src/lib/constants.ts",
+      "bytes": 2890,
+      "sha256": "9ce4f031cdb3c4f8e98a9756b063ed00bda872550736e0e6271086f319727711"
+    },
+    {
+      "path": "src/lib/portal-tour.ts",
+      "bytes": 15892,
+      "sha256": "020695f993f9bd72c5e995fccae7ae30cc2f4b2609e225e6415dbb985085b830"
+    },
+    {
+      "path": "src/lib/utils.ts",
+      "bytes": 1299,
+      "sha256": "aacd1948812c8ab24fee133e956f51a3ff11c68c70f97d33ad445e5142b433aa"
+    },
+    {
+      "path": "tests/portal-tour.test.ts",
+      "bytes": 4145,
+      "sha256": "9542690efac1cb502a7de3dd97d4ed542b64e519cdac717d1c86900668f857ff"
+    },
+    {
+      "path": "tsconfig.json",
+      "bytes": 670,
+      "sha256": "5c51df4c59f4510d8c7dadf07a5c32132228826a3b331da5e286207b4df7ef9c"
+    }
+  ]
+}
